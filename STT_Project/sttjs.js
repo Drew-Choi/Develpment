@@ -5,7 +5,7 @@ function checkCompatibility () {
    recognition.maxAlternatives = 1;
 
    if(!recognition) {
-    alert('크롬이나 엣지에서 사용해주세요.')
+    alert('크롬, 엣지, 사파리에서 사용해주세요.')
    };
 }
 
