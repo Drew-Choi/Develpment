@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API연습</title>
+    <style>
+    .img {
+      width: 500px;
+      height: 400px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: flex;
+      justify-content: left;
+     }
+    </style>
+</head>
+<body>
+
+    <h1 id="sound"></h1>
+    <br>
+    <div class="img"></div>
+
+    <input id="name" type="text">
+    <button onclick="getSound()">API요청</button>
+
+    <script>
+      function getSound() {
+        const name = document.getElementById("name").value
+        fetch(`http://localhost:3001/sound/${name}`)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.sound)
+            document.getElementById("sound").innerHTML = data.sound
+            console.log(data.img)
+            document.querySelector(".img").style.backgroundImage = "url('./" + data.img +"')"
+        });
+      }
+    </script>
+</body>
+</html>
+
